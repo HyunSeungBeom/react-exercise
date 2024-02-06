@@ -1,41 +1,59 @@
 import React, { useState } from "react";
+import { FaTimes } from "react-icons/fa";
+
+const Button = ({ text, onClick }: { text: string; onClick: VoidFunction }) => {
+  return (
+    <button
+      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded"
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
+};
+
+const _buildTitle = (text: String) => {
+  return <h1 className="text-3xl font-bold mb-4">{text}</h1>;
+};
+
+const _buildButton = (onClick: VoidFunction) => {
+  return (
+    <button onClick={onClick} className="absolute top-20 right-20">
+      <FaTimes style={{ width: "50px", height: "50px" }} />
+    </button>
+  );
+};
 
 function App() {
-  const [showChildren, setShowChildren] = useState<boolean>(false);
+  const [home, setHome] = useState<boolean>(true);
+  const [showDetail, setShowDetail] = useState<boolean>(false);
 
   const parentButtonClick = () => {
-    setShowChildren(!showChildren);
-    if (showChildren) {
-    }
+    setHome(!home);
   };
+
+  const showDetailClick = () => {};
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-blue-100">
-      <h1 className="text-3xl font-bold mb-4">React Exercise!</h1>
-      <div className="flex flex-col justify-center space-y-4">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded"
-          onClick={parentButtonClick}
-        >
-          react-api
-        </button>
-        {showChildren && (
-          <div className="flex-row space-x-4">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">
-              renderToString
-            </button>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">
-              renderToStaticMarkup
-            </button>
+      {home ? (
+        <>
+          {_buildTitle("Come on!")}
+          <div className="flex flex-col justify-center space-y-4">
+            <Button text="react-api" onClick={parentButtonClick} />
+            <Button text="example" onClick={showDetailClick} />
+            <Button text="example2" onClick={showDetailClick} />
           </div>
-        )}
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">
-          example
-        </button>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">
-          example
-        </button>
-      </div>
+        </>
+      ) : (
+        <>
+          {_buildButton(parentButtonClick)}
+          {_buildTitle("What would you like to learn?")}
+          <div className="flex flex-col justify-center space-y-4">
+            <Button text="renderToString" onClick={() => {}} />
+          </div>
+        </>
+      )}
     </div>
   );
 }
