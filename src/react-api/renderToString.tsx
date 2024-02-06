@@ -46,3 +46,13 @@ const result = ReactDomServer.renderToString(
   </ul>
 </div>;
  */
+
+//개념
+/*
+최초의 페이지를 HTML로 먼저 렌더링하는 함수가 renderToString이다.
+ChildrenComponent에 있는 useEffect와 같은 훅과 handleClick과 같은 이벤트 핸들러는 결과물에 포함되지 않았다.
+renderToString은 인수로 주어진 리액트 컴포넌트를 기준으로 빠르게 브라우저가 렌더링할 수 있는 HTML을 제공하는 데 목적
+
+
+
+*/
