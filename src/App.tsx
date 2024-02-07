@@ -28,9 +28,7 @@ function App() {
   const [home, setHome] = useState<boolean>(true);
   const [showDetail, setShowDetail] = useState<boolean>(false);
 
-  const parentButtonClick = () => {
-    setHome(!home);
-  };
+  const parentButtonClick = () => setHome(!home);
 
   const showDetailClick = () => {};
 
