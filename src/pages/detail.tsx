@@ -5,7 +5,7 @@ import { getSource } from "service/api";
 
 function DetailPage() {
   const { sub, detail } = useParams();
-  const [Component, setComponent] = useState(null);
+  const [component, setComponent] = useState();
   const navigate = useNavigate();
 
   const fetchGetSource = async ({
@@ -30,9 +30,10 @@ function DetailPage() {
       <div className="absolute top-4 right-4">
         <Button text="뒤로가기" onClick={() => navigate(-1)} />
       </div>
-      {Component}
+      <h1 className="text-3xl font-bold mb-4">{detail}</h1>
+      <div> {component}</div>
     </>
-  ); // 저장된 컴포넌트를 렌더링합니다.
+  );
 }
 
 export default DetailPage;
