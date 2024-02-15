@@ -29,7 +29,7 @@ function SubPage() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-blue-100">
+    <>
       <div className="absolute top-4 right-4">
         <Button text="뒤로가기" onClick={() => navigate(-1)} />
       </div>
@@ -47,7 +47,7 @@ function SubPage() {
             </div>
           );
         })}
-    </div>
+    </>
   );
 }
 

@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import internal from "stream";
 
-export default function App({ todos }: { todos: Array<TodoResponse> }) {
+export default function RenderToNodeStreamComponent() {
+  const todos: TodoResponse[] = [
+    { number: 1, name: "할일1" },
+    { number: 2, name: "할일2" },
+    { number: 3, name: "할일3" },
+  ];
+
   return (
     <>
       <h1>나의 할 일!</h1>
@@ -39,7 +45,7 @@ async () => {
 };
 
 interface TodoResponse {
-  number: internal;
+  number: number;
   name: String;
 }
 

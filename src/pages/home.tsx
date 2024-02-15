@@ -10,7 +10,7 @@ function HomePage() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-blue-100">
+    <>
       <h1 className="text-3xl font-bold mb-4">Hello</h1>
       {buttons.map((button, index) => {
         return (
@@ -19,7 +19,7 @@ function HomePage() {
           </div>
         );
       })}
-    </div>
+    </>
   );
 }
 
